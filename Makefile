@@ -10,7 +10,7 @@ FLAGS = /nologo /W4 /external:W0 /EHsc /I $(INCLUDE) /I $(SDL_INCLUDE) /Fesnake.
 LINKER = SDL2.lib /link /LIBPATH:"$(SDL_LIB)"
 
 release: src/*.cpp
-	$(CC) $(FLAGS) /O2 /GS /GL /Zo- $** $(LINKER)
+	$(CC) $(FLAGS) /O2 /GS /GL /Zo- $** $(LINKER) /subsystem:windows
 
 debug: src/*.cpp
-	$(CC) $(FLAGS) /DDEBUG_ENABLE /Fesnake.exe $** $(LINKER)
+	$(CC) $(FLAGS) /DDEBUG_ENABLE $** $(LINKER) /subsystem:console
